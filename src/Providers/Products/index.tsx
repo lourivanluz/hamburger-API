@@ -34,12 +34,15 @@ export const ProductProvider = ({ children }: ProductProviderProps) => {
   const [products, setProducts] = useState<product[]>([] as product[]);
   const [token] = useState(localStorage.getItem("@tokenKH") || "");
 
-  useEffect(() => {
+  /* useEffect(() => {
     axios
       .get("/products")
-      .then((response) => setProducts(response.data))
+      .then((response) => {
+        console.log(response);
+        setProducts(response.data);
+      })
       .catch((err) => console.log(err));
-  }, []);
+  }, []); */
 
   const addProduct = (data: product) => {
     data.userId = 1;

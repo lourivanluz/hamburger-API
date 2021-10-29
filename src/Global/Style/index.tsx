@@ -68,6 +68,7 @@ img{
     --grey0:          #f5f5f5;
     --grey1:          #e0e0e0;
     --grey3:          #828282;
+    --grey5:          #999999;
     --grey6:          #333333;
 
     --negativeColor:  #e60000;

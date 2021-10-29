@@ -1,5 +1,11 @@
+import { Routers } from "./Routers";
+
 function App() {
-  return <div>oi</div>;
+  return (
+    <div>
+      <Routers />
+    </div>
+  );
 }
 
 export default App;

@@ -26,9 +26,7 @@ export const CartContext = createContext<cartContextData>(
 );
 
 export const CartProvider = ({ children }: CartProviderProps) => {
-  const [cartList, setCartList] = useState<product[]>(
-    JSON.parse(localStorage.getItem("@CartKH") || "") || ([] as product[])
-  );
+  const [cartList, setCartList] = useState<product[]>([] as product[]);
 
   const addToCart = (product: product) => {
     //logica de procurar se existe o produto na lista
