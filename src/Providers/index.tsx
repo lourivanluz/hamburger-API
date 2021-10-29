@@ -1,3 +1,10 @@
-export const Providers = () => {
-  return <div>a</div>;
+import { ReactNode } from "react";
+import { CartProvider } from "./Cart";
+
+interface ProvidersProps {
+  children: ReactNode;
+}
+
+export const Providers = ({ children }: ProvidersProps) => {
+  return <CartProvider>{children}</CartProvider>;
 };
