@@ -79,6 +79,10 @@ img{
     --information:    #155bcb;
 
     --font-primary: 'Inter', sans-serif;
+
+    --heading1: 26px bold
+    --heading2: 22px bold 'Inter'
+    --heading3: 18px bold
 }
 
 `;

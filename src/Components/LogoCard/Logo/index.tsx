@@ -1,8 +1,8 @@
 import { LogoContainer } from "./style";
 
-export const Logo = () => {
+export const Logo = ({ ...ress }) => {
   return (
-    <LogoContainer>
+    <LogoContainer {...ress}>
       <h1>
         Burger <span>Kenzie</span>
       </h1>

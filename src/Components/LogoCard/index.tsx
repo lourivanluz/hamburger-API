@@ -4,7 +4,7 @@ import { Logo } from "./Logo";
 export const LogoCard = () => {
   return (
     <div>
-      <Logo />
+      <Logo marginBotton={"30"} />
       <Card />
     </div>
   );

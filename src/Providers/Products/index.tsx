@@ -6,6 +6,7 @@ import {
   useEffect,
   useState,
 } from "react";
+import { api } from "../../Server/api";
 
 interface product {
   id: string;
@@ -34,19 +35,18 @@ export const ProductProvider = ({ children }: ProductProviderProps) => {
   const [products, setProducts] = useState<product[]>([] as product[]);
   const [token] = useState(localStorage.getItem("@tokenKH") || "");
 
-  /* useEffect(() => {
-    axios
+  useEffect(() => {
+    api
       .get("/products")
       .then((response) => {
-        console.log(response);
         setProducts(response.data);
       })
       .catch((err) => console.log(err));
-  }, []); */
+  }, []);
 
   const addProduct = (data: product) => {
     data.userId = 1;
-    axios
+    api
       .post("/products", data, {
         headers: { Authorization: `Bearer ${token}` },
       })
@@ -55,7 +55,7 @@ export const ProductProvider = ({ children }: ProductProviderProps) => {
   };
 
   const deleteProduct = (idProduct: string) => {
-    axios
+    api
       .delete(`/products/${idProduct}`, {
         headers: { Authorization: `Bearer ${token}` },
       })

@@ -13,8 +13,9 @@ interface InputFildProps {
   register: UseFormRegister<FieldValues>;
   type: string;
   name: string;
-  error: boolean;
-  messageerror: string;
+  error?: boolean;
+  messageerror?: string;
+  width?: string;
 }
 
 export const InputFild = ({ register, id, ...ress }: InputFildProps) => {

@@ -4,16 +4,18 @@ import { FormContainer } from "./style";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Button } from "../../Button";
-import { ButtonStyled } from "../../Button/style";
+import { useUser } from "../../../Providers/User";
 
 interface FormData {
   name: string;
   email: string;
-  passoword: string;
+  password: string;
   passwordConfirm: string;
 }
 
 export const FormRegister = () => {
+  const { registry } = useUser();
+
   const formSchema = yup.object().shape({
     name: yup
       .string()
@@ -42,8 +44,13 @@ export const FormRegister = () => {
     resolver: yupResolver(formSchema),
   });
 
-  const onFormSubmit = (data: FormData) => {
-    console.log(data);
+  const onFormSubmit = ({ name, email, password }: FormData) => {
+    const user = {
+      name,
+      email,
+      password,
+    };
+    registry(user);
   };
 
   return (
@@ -54,6 +61,7 @@ export const FormRegister = () => {
           id={"name"}
           name={"Nome"}
           type="text"
+          width={"327px"}
           error={!!errors.name}
           messageerror={errors.name?.message}
         />
@@ -62,6 +70,7 @@ export const FormRegister = () => {
           id={"email"}
           name={"Email"}
           type="text"
+          width={"327px"}
           error={!!errors.email}
           messageerror={errors.email?.message}
         />
@@ -69,6 +78,7 @@ export const FormRegister = () => {
           register={register}
           id={"password"}
           name={"Senha"}
+          width={"327px"}
           type="password"
           error={!!errors.password}
           messageerror={errors.password?.message}
@@ -77,18 +87,19 @@ export const FormRegister = () => {
           register={register}
           id={"passwordConfirm"}
           name={"Confirmar senha"}
+          width={"327px"}
           type="password"
           error={!!errors.passwordConfirm}
           messageerror={errors.passwordConfirm?.message}
         />
         <Button
-          fontColor={"white"}
-          width={320}
+          fontColor={"var(--grey5)"}
+          width={347}
           height={60}
-          backGroundColor={"var(--green1)"}
+          backGroundColor={"var(--grey0)"}
           type="submit"
         >
-          register
+          Cadastrar
         </Button>
       </form>
     </FormContainer>
