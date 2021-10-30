@@ -5,9 +5,9 @@ interface CartProviderProps {
 }
 
 interface product {
-  id: string;
+  id: number;
   name: string;
-  price: number;
+  price: string;
   type: string;
   img: string;
   quantity?: number;
@@ -16,9 +16,8 @@ interface product {
 interface cartContextData {
   cartList: product[];
   addToCart: (product: product) => void;
-  rmvToCart: (idProduct: string) => void;
+  rmvToCart: (idProduct: number) => void;
   rmvAllProductCart: () => void;
-  switchQuantity: (product: product, type: string) => void;
 }
 
 export const CartContext = createContext<cartContextData>(
@@ -29,31 +28,17 @@ export const CartProvider = ({ children }: CartProviderProps) => {
   const [cartList, setCartList] = useState<product[]>([] as product[]);
 
   const addToCart = (product: product) => {
-    //logica de procurar se existe o produto na lista
-    // se nao existe colocar na lista com quantidade 1
-    //se existir adiciona 1 a quantidade.
-    const [newProduct] = cartList.filter((item) => item.id === product.id);
-
-    if (newProduct.quantity) {
-      newProduct.quantity += 1;
-      setCartList([...cartList, newProduct]);
-    } else {
-      product.quantity = 1;
-      setCartList([...cartList, product]);
-    }
+    setCartList([...cartList, product]);
   };
 
-  const switchQuantity = (product: product, type: string) => {
-    let { quantity } = product;
-    if (quantity) {
-      if (type === "add") quantity += 1;
-      if (type !== "add" && quantity > 0) quantity -= 1;
-    }
-  };
+  const rmvToCart = (idProduct: number) => {
+    const newCartList = cartList
+      .filter((item) => item.id === idProduct)
+      .slice(1);
 
-  const rmvToCart = (idProduct: string) => {
-    const newCartList = cartList.filter((item) => item.id !== idProduct);
-    setCartList(newCartList);
+    const filtred = cartList.filter((item) => item.id !== idProduct);
+
+    setCartList([...filtred, ...newCartList]);
   };
 
   const rmvAllProductCart = () => {
@@ -67,7 +52,6 @@ export const CartProvider = ({ children }: CartProviderProps) => {
         addToCart,
         rmvToCart,
         rmvAllProductCart,
-        switchQuantity,
       }}
     >
       {children}
