@@ -1,4 +1,61 @@
 {
   "users": [],
-  "products": []
+  "products": [
+    {
+      "id": 1,
+      "name": "X-Burgao",
+      "price": "12.50",
+      "type": "sanduiches",
+      "img": "https://w7.pngwing.com/pngs/976/67/png-transparent-whopper-hamburger-cheeseburger-chicken-sandwich-big-king-burger-king-food-cheese-recipe.png",
+      "userId": 1
+    },
+    {
+      "id": 2,
+      "name": "X-Burgao pus",
+      "price": "20.50",
+      "type": "sanduiches",
+      "img": "https://imagensemoldes.com.br/wp-content/uploads/2020/04/PNG-Sanduiche-1024x755.png",
+      "userId": 1
+    },
+    {
+      "id": 3,
+      "name": "Combão bão",
+      "price": "25.50",
+      "type": "combo",
+      "img": "https://www.pikpng.com/pngl/m/461-4616485_hamburguer-com-fritas-png-trio-sanduiche-clipart.png",
+      "userId": 1
+    },
+    {
+      "id": 4,
+      "name": "X-big",
+      "price": "17.50",
+      "type": "sanduiches",
+      "img": "https://noticiapositiva.com.br/wp-content/uploads/2019/09/19.09-mcdonalds.png",
+      "userId": 1
+    },
+    {
+      "id": 5,
+      "name": "X-fome",
+      "price": "11.50",
+      "type": "sanduiches",
+      "img": "https://www.beefpoint.com.br/wp-content/uploads/2018/07/Design-sem-nome-58.jpg",
+      "userId": 1
+    },
+    {
+      "id": 6,
+      "name": "Coca-cola",
+      "price": "8.50",
+      "type": "bebida",
+      "img": "https://img2.gratispng.com/20171220/oyw/coca-cola-bottle-png-image-5a3ac0f1052ef9.07902989151379992102124974.jpg",
+      "userId": 1
+    },
+    {
+      "id": 7,
+      "name": "Sundae",
+      "price": "8.50",
+      "type": "sobremesa",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt2of_TDEyuMWTSFQ4eozwviwI8SmskBMVGA&usqp=CAU",
+      "userId": 1
+    }
+  ]
 }
