@@ -71,6 +71,8 @@ img{
     --grey5:          #999999;
     --grey6:          #333333;
 
+    --green1:         #219653;
+
     --negativeColor:  #e60000;
     --warningColor:   #ffcd07;
     --sucess:         #168821;

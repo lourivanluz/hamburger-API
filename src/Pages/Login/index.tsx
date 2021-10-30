@@ -1,3 +1,9 @@
+import { LogoCard } from "../../Components/LogoCard";
+
 export const Login = () => {
-  return <div>login</div>;
+  return (
+    <div>
+      <LogoCard />
+    </div>
+  );
 };

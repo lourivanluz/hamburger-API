@@ -3,6 +3,8 @@ import { InputFild } from "../../input/InputFild";
 import { FormContainer } from "./style";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { Button } from "../../Button";
+import { ButtonStyled } from "../../Button/style";
 
 interface FormData {
   name: string;
@@ -79,7 +81,15 @@ export const FormRegister = () => {
           error={!!errors.passwordConfirm}
           messageerror={errors.passwordConfirm?.message}
         />
-        <button type="submit">register</button>
+        <Button
+          fontColor={"white"}
+          width={320}
+          height={60}
+          backGroundColor={"var(--green1)"}
+          type="submit"
+        >
+          register
+        </Button>
       </form>
     </FormContainer>
   );
