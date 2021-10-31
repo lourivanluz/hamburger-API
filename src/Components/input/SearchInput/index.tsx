@@ -1,16 +1,19 @@
-import { InputHTMLAttributes } from "react";
 import { InputContainer, InputStyled } from "./style";
 import { FaSearch } from "react-icons/fa";
+import { useState } from "react";
+import { useProduct } from "../../../Providers/Products";
 
-interface SearchInputProps extends InputHTMLAttributes<HTMLInputElement> {
-  whidth?: string;
-}
+export const SearchInput = () => {
+  const [search, setSearch] = useState("");
+  const { filterPerCategory } = useProduct();
 
-export const SearchInput = ({ ...ress }: SearchInputProps) => {
   return (
     <InputContainer>
-      <InputStyled {...ress} placeholder={"Digitar Pesquisa"} />
-      <button>
+      <InputStyled
+        placeholder={"Digitar Pesquisa"}
+        onChange={(event) => setSearch(event.target.value)}
+      />
+      <button onClick={() => filterPerCategory(search)}>
         <FaSearch />
       </button>
     </InputContainer>

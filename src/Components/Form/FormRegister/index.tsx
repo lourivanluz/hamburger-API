@@ -61,7 +61,7 @@ export const FormRegister = () => {
           id={"name"}
           name={"Nome"}
           type="text"
-          width={"327px"}
+          width={"315px"}
           error={!!errors.name}
           messageerror={errors.name?.message}
         />
@@ -70,7 +70,7 @@ export const FormRegister = () => {
           id={"email"}
           name={"Email"}
           type="text"
-          width={"327px"}
+          width={"315px"}
           error={!!errors.email}
           messageerror={errors.email?.message}
         />
@@ -78,7 +78,7 @@ export const FormRegister = () => {
           register={register}
           id={"password"}
           name={"Senha"}
-          width={"327px"}
+          width={"315px"}
           type="password"
           error={!!errors.password}
           messageerror={errors.password?.message}
@@ -87,14 +87,14 @@ export const FormRegister = () => {
           register={register}
           id={"passwordConfirm"}
           name={"Confirmar senha"}
-          width={"327px"}
+          width={"315px"}
           type="password"
           error={!!errors.passwordConfirm}
           messageerror={errors.passwordConfirm?.message}
         />
         <Button
           fontColor={"var(--grey5)"}
-          width={347}
+          width={333}
           height={60}
           backGroundColor={"var(--grey0)"}
           type="submit"

@@ -6,6 +6,9 @@ export const SCCardContainer = styled.div`
   width: 300px;
   height: 346px;
   border-radius: 5px;
+  &:hover {
+    border: 2px solid var(--color-primary);
+  }
   .imgContainer {
     width: 300px;
     background-color: var(--grey0);

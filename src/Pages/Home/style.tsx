@@ -3,6 +3,9 @@ export const HeaderStyled = styled.header`
   height: 80px;
   background-color: var(--grey0);
   display: flex;
+  position: fixed;
+  top: 0;
+  width: 100vw;
 
   .logoContainer {
     width: fit-content;
@@ -26,6 +29,23 @@ export const HeaderStyled = styled.header`
       margin-left: 23px;
       cursor: pointer;
     }
+    .cartContainer {
+      position: relative;
+      div {
+        background-color: red;
+        color: white;
+        border-radius: 50%;
+        width: 15px;
+        height: 15px;
+        font-size: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: -12px;
+        right: -12px;
+      }
+    }
   }
 `;
 
@@ -33,4 +53,18 @@ export const PageHome = styled.div`
   width: 100%;
   max-width: 1024px;
   margin: 0 auto;
+`;
+
+export const MainStyled = styled.main`
+  padding: 80px;
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 30px;
+    padding-top: 30px;
+    li {
+      padding-bottom: 30px;
+      padding-right: 30px;
+    }
+  }
 `;

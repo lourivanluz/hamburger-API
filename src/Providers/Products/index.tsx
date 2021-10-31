@@ -9,22 +9,23 @@ import {
 import { api } from "../../Server/api";
 
 interface product {
-  id: string;
+  id: number;
   name: string;
-  price: number;
+  price: string;
   type: string;
   img: string;
   quantity?: number;
-  userId?: number;
+  userId: number;
 }
 interface ProductProviderProps {
   children: ReactNode;
 }
 
 interface ProductProviderData {
-  products: product[];
+  productsFilter: product[];
   addProduct: (data: product) => void;
   deleteProduct: (idProduct: string) => void;
+  filterPerCategory: (category: string) => void;
 }
 
 export const ProductContext = createContext<ProductProviderData>(
@@ -33,6 +34,11 @@ export const ProductContext = createContext<ProductProviderData>(
 
 export const ProductProvider = ({ children }: ProductProviderProps) => {
   const [products, setProducts] = useState<product[]>([] as product[]);
+
+  const [productsFilter, setProductsFilter] = useState<product[]>(
+    [] as product[]
+  );
+
   const [token] = useState(localStorage.getItem("@tokenKH") || "");
 
   useEffect(() => {
@@ -40,6 +46,7 @@ export const ProductProvider = ({ children }: ProductProviderProps) => {
       .get("/products")
       .then((response) => {
         setProducts(response.data);
+        setProductsFilter(response.data);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -63,8 +70,26 @@ export const ProductProvider = ({ children }: ProductProviderProps) => {
       .catch((err) => console.log("nao deletado"));
   };
 
+  const filterPerCategory = (category: string) => {
+    if (category) {
+      const spredProduct = [...products].filter(
+        (item) => item.type.includes(category) || item.name.includes(category)
+      );
+      setProductsFilter(spredProduct);
+    } else {
+      setProductsFilter([...products]);
+    }
+  };
+
   return (
-    <ProductContext.Provider value={{ products, addProduct, deleteProduct }}>
+    <ProductContext.Provider
+      value={{
+        addProduct,
+        deleteProduct,
+        filterPerCategory,
+        productsFilter,
+      }}
+    >
       {children}
     </ProductContext.Provider>
   );

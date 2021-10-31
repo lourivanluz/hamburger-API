@@ -16,7 +16,7 @@ export const Login = () => {
         <p>Crie sua conta para saborear muitas delícias e matar sua fome!</p>
         <Button
           fontColor={"var(--grey5)"}
-          width={347}
+          width={333}
           height={60}
           backGroundColor={"var(--grey0)"}
           type="button"

@@ -1,10 +1,12 @@
 import styled from "styled-components";
 
 export const PageRegister = styled.div`
+  display: flex;
+  justify-content: center;
   padding: 30px 20px 0 20px;
   .formContainer {
     padding: 18px;
-    width: 347px;
+    width: 333px;
     border-radius: 5px;
     border: 1px solid var(--grey0);
     .headerForm {
@@ -22,6 +24,13 @@ export const PageRegister = styled.div`
         text-decoration: underline;
         cursor: pointer;
       }
+    }
+  }
+  .logoContainer {
+    display: none;
+    @media (min-width: 850px) {
+      display: block;
+      margin-right: 20px;
     }
   }
 `;

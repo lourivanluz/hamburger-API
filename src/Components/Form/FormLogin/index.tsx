@@ -24,18 +24,18 @@ export const FormLogin = () => {
           id={"email"}
           name={"Email"}
           type="text"
-          width={"327px"}
+          width={"315px"}
         />
         <InputFild
           register={register}
           id={"password"}
           name={"Senha"}
           type="password"
-          width={"327px"}
+          width={"315px"}
         />
         <Button
           fontColor={"white"}
-          width={347}
+          width={333}
           height={60}
           backGroundColor={"var(--green1)"}
           type="submit"

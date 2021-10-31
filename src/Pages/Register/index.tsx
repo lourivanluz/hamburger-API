@@ -1,6 +1,7 @@
 import { Link, useHistory } from "react-router-dom";
 import { Button } from "../../Components/Button";
 import { FormRegister } from "../../Components/Form/FormRegister";
+import { LogoCard } from "../../Components/LogoCard";
 import { PageRegister } from "./style";
 
 export const Register = () => {
@@ -8,6 +9,9 @@ export const Register = () => {
 
   return (
     <PageRegister>
+      <div className="logoContainer">
+        <LogoCard />
+      </div>
       <div className="formContainer">
         <div className="headerForm">
           <h2>Cadastro</h2>
