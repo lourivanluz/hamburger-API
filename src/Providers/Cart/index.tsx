@@ -17,7 +17,8 @@ interface cartContextData {
   cartList: product[];
   addToCart: (product: product) => void;
   rmvToCart: (idProduct: number) => void;
-  rmvAllProductCart: () => void;
+  rmvAllProductToCart: () => void;
+  rmvAllProducts: (idProduct: number) => void;
 }
 
 export const CartContext = createContext<cartContextData>(
@@ -35,13 +36,16 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     const newCartList = cartList
       .filter((item) => item.id === idProduct)
       .slice(1);
-
     const filtred = cartList.filter((item) => item.id !== idProduct);
-
     setCartList([...filtred, ...newCartList]);
   };
 
-  const rmvAllProductCart = () => {
+  const rmvAllProducts = (idProduct: number) => {
+    const newCartList = cartList.filter((item) => item.id !== idProduct);
+    setCartList(newCartList);
+  };
+
+  const rmvAllProductToCart = () => {
     setCartList([]);
   };
 
@@ -51,7 +55,8 @@ export const CartProvider = ({ children }: CartProviderProps) => {
         cartList,
         addToCart,
         rmvToCart,
-        rmvAllProductCart,
+        rmvAllProductToCart,
+        rmvAllProducts,
       }}
     >
       {children}

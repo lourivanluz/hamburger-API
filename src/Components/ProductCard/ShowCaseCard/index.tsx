@@ -15,8 +15,7 @@ interface ShowCaseCardProps {
 
 export const ShowCaseCard = ({ item }: ShowCaseCardProps) => {
   const { id, name, type, price, img } = item;
-
-  const { addToCart, cartList, rmvToCart } = useCart();
+  const { addToCart } = useCart();
 
   return (
     <SCCardContainer>
@@ -37,7 +36,6 @@ export const ShowCaseCard = ({ item }: ShowCaseCardProps) => {
           Adicionar
         </Button>
       </div>
-      <button onClick={() => rmvToCart(id)}>delete1</button>
     </SCCardContainer>
   );
 };

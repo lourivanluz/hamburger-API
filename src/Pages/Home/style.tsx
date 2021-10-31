@@ -24,6 +24,7 @@ export const HeaderStyled = styled.header`
       font-size: 25px;
       color: var(--grey5);
       margin-left: 23px;
+      cursor: pointer;
     }
   }
 `;

@@ -15,6 +15,8 @@ export const Home = () => {
   const [search, setSearch] = useState("");
   const { cartList } = useCart();
 
+  const [showCart, setShowCart] = useState(false);
+
   if (!auth) return <Redirect to="/register" />;
 
   const list = [
@@ -28,6 +30,14 @@ export const Home = () => {
     },
     {
       id: 2,
+      name: "X-Burgao pus",
+      price: "20.50",
+      type: "sanduiches",
+      img: "https://imagensemoldes.com.br/wp-content/uploads/2020/04/PNG-Sanduiche-1024x755.png",
+      userId: 1,
+    },
+    {
+      id: 4,
       name: "X-Burgao pus",
       price: "20.50",
       type: "sanduiches",
@@ -49,8 +59,12 @@ export const Home = () => {
                 setSearch(event.target.value);
               }}
             />
-            <ImCart className="icon-header iconCart" />
-            <Cart cartList={cartList} />
+            <ImCart
+              className="icon-header iconCart"
+              onClick={() => setShowCart(true)}
+            />
+            {showCart && <Cart cartList={cartList} setShowCart={setShowCart} />}
+
             <FiLogOut className="icon-header iconLogout" />
           </div>
         </div>
