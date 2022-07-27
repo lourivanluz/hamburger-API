@@ -32,6 +32,18 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     setCartList([...cartList, product]);
   };
 
+  const newAddToCart = (product: product) => {
+    const [filtred] = cartList.filter((item) => item.id === product.id);
+    const newlist = cartList.filter((item) => item.id !== product.id);
+
+    if (filtred.quantity) {
+      filtred.quantity += 1;
+    } else {
+      filtred.quantity = 1;
+    }
+    setCartList([...newlist, filtred]);
+  };
+
   const rmvToCart = (idProduct: number) => {
     const newCartList = cartList
       .filter((item) => item.id === idProduct)
